@@ -32,9 +32,33 @@ public class TwoSum {
         return arr;
     }
 
+    public static int[] twoSum1(int[] nums, int target)
+    {
+        int arr[]  = new int[2];
+        int i=0;
+        int j = nums.length-1;
+        while(i < nums.length)
+        {
+            if(Math.abs(nums[i]) + Math.abs(nums[j]) > Math.abs(target))
+            {
+                --j;
+            }else if(Math.abs(nums[i]) + Math.abs(nums[j])< Math.abs(target))
+            {
+                ++i;
+            }else if(Math.abs(nums[i]) + Math.abs(nums[j])== Math.abs(target))
+            {
+                arr[0] = i;
+                arr[1] = j;
+                return arr;
+            }
+        }
+        return arr;
+
+    }
+
     public static void main(String[] args) {
-        int[] arr = {3,2, 3};
-        int[] arr1 = twoSum(arr,6);
+        int[] arr = {-1,-2,-3,-4,-5};
+        int[] arr1 = twoSum1(arr,-8);
         System.out.println(arr1[0] +" = "+ arr1[1]  );
     }
 }
